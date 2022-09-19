@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="check"
 export default class extends Controller {
   connect() {
-    console.log("CheckController connected")
+    console.log("Check ControllerRR connected")
   }
   active(event) {
     console.log("CheckController active")

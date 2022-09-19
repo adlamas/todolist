@@ -1,0 +1,56 @@
+{
+  "application.js": "///js/application-a5e2d689139d5ae9043a.js",
+  "application.js.map": "///js/application-a5e2d689139d5ae9043a.js.map",
+  "controllers/application.js": "///js/controllers/application-39a48f3462781935e72c.js",
+  "controllers/application.js.map": "///js/controllers/application-39a48f3462781935e72c.js.map",
+  "controllers/check_controller.js": "///js/controllers/check_controller-64d1dcbd9f5d360ed121.js",
+  "controllers/check_controller.js.map": "///js/controllers/check_controller-64d1dcbd9f5d360ed121.js.map",
+  "controllers/hello_controller.js": "///js/controllers/hello_controller-e3271a1c756929ae9681.js",
+  "controllers/hello_controller.js.map": "///js/controllers/hello_controller-e3271a1c756929ae9681.js.map",
+  "controllers/index.js": "///js/controllers/index-9d382aa5dfd7aaf47171.js",
+  "controllers/index.js.map": "///js/controllers/index-9d382aa5dfd7aaf47171.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "///js/application-a5e2d689139d5ae9043a.js"
+      ],
+      "js.map": [
+        "///js/application-a5e2d689139d5ae9043a.js.map"
+      ]
+    },
+    "controllers/application": {
+      "js": [
+        "///js/controllers/application-39a48f3462781935e72c.js"
+      ],
+      "js.map": [
+        "///js/controllers/application-39a48f3462781935e72c.js.map"
+      ]
+    },
+    "controllers/check_controller": {
+      "js": [
+        "///js/controllers/check_controller-64d1dcbd9f5d360ed121.js"
+      ],
+      "js.map": [
+        "///js/controllers/check_controller-64d1dcbd9f5d360ed121.js.map"
+      ]
+    },
+    "controllers/hello_controller": {
+      "js": [
+        "///js/controllers/hello_controller-e3271a1c756929ae9681.js"
+      ],
+      "js.map": [
+        "///js/controllers/hello_controller-e3271a1c756929ae9681.js.map"
+      ]
+    },
+    "controllers/index": {
+      "js": [
+        "///js/controllers/index-9d382aa5dfd7aaf47171.js"
+      ],
+      "js.map": [
+        "///js/controllers/index-9d382aa5dfd7aaf47171.js.map"
+      ]
+    }
+  },
+  "vendors~actioncable.js": "///js/vendors~actioncable-2b4b0d79459d7e81ee0b.chunk.js",
+  "vendors~actioncable.js.map": "///js/vendors~actioncable-2b4b0d79459d7e81ee0b.chunk.js.map"
+}
