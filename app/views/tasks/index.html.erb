@@ -21,7 +21,8 @@
   <%= render @tasks %>
 <% end %>
 
-<h3>DONE</h3>
+<br>
+<h3>TAREAS COMPLETADAS</h3>
 <%= turbo_frame_tag "done_list" do %>
   <%= render @done_tasks %>
 <% end %>

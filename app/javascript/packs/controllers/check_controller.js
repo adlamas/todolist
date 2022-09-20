@@ -2,9 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="check"
 export default class extends Controller {
-  connect() {
-    console.log("Check ControllerRR connected")
+  connect() { 
+    console.log("Check Controller OLD VERSION connected")
   }
+  
   active(event) {
     console.log("CheckController active")
     const id = event.target.dataset.id
@@ -21,7 +22,9 @@ export default class extends Controller {
       },
       body: JSON.stringify({ completed: event.target.checked })
     })
-    .then(response => response.text())
+    .then(response =>  {
+      return response.text()
+    })
     .then(Turbo.renderStreamMessage)
   }
 }
