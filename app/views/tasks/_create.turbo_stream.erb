@@ -1,3 +1,9 @@
-<%= turbo_stream.prepend "todo_list" do %>
-  <%= render partial: "tasks/task", locals: {task: task} %>
+<%= turbo_stream.append "todo_list" do %>
+  <% byebug %>
+  <% if task.id.present? %>
+    <%= render partial: "tasks/task", locals: { task: task } %>
+  <% else %>
+    <% byebug %>
+    <%= render partial: "tasks/error", locals: { error: "We have encountered an error" } %>
+  <% end %>
 <% end %>

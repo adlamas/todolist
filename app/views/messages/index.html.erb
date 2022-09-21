@@ -1,0 +1,22 @@
+<div class="container">
+
+  <p style="color: green"><%= notice %></p>
+
+  <h1>MENSAJES</h1>
+
+  <%= form_with url: "/messages", method: :post do |form| %>
+    <%= form.label :content, "Message:" %>
+    <%= form.text_field :content %>
+    <%= form.submit "Create Message" %>
+  <% end %>
+
+  <br>
+  <div>
+    Mensajes recibidos
+  </div>
+
+  <%= turbo_stream_from 'messages' %>
+
+  <!-- CORE IDEA: Poder ir agregando los mensajes que voy escribiendo, uno abajo del otro !-->
+
+</div>

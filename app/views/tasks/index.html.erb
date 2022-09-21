@@ -1,30 +1,59 @@
 <div class="container">
 
-<p style="color: green"><%= notice %></p>
+  <p style="color: green"><%= notice %></p>
 
-<h1>Tasks</h1>
+  <h1>Tasks</h1>
 
-<%= form_with(model: @task, class: "row g-3") do |form| %>
-  <div class="col-auto">
-    <%= form.label "Lista", class:"visually-hidden" %>
-    <%= form.text_field :name, class:"form-control" %>
+  <%= form_with(model: @task, class: "row g-3") do |form| %>
+    <div class="col-auto">
+      <%= form.label "Lista", class:"visually-hidden" %>
+      <%= form.text_field :name, class:"form-control" %>
+    </div>
+    <div class="col-auto">
+      <%= form.button :submit, class:"btn btn-primary mb-3" %>
+    </div>
+  <% end %>
+
+  <%= turbo_stream_from 'tasks' %>
+
+  <h3>POR HACER</h3>
+  <%= turbo_frame_tag "todo_list" do %>
+    <%= render @tasks %>
+  <% end %>
+
+  <br>
+  <h3>TAREAS COMPLETADAS</h3>
+  <%= turbo_frame_tag "done_list" do %>
+    <%= render @done_tasks %>
+  <% end %>
+
+  <br>
+  <div data-controller="check"> <!-- STIMULUS !-->
+    <input data-check-target="num1" type="text"><br>
+    <input data-check-target="num2" type="text"><br>
+    <button data-action="click->check#sum">Sum</button>
   </div>
-  <div class="col-auto">
-    <%= form.button :submit, class:"btn btn-primary mb-3" %>
+
+  <br>
+  <h3> -------------------------------------------------------------------------- </h3>
+
+  <h3>MENSAJES</h3>
+
+  <%= form_with url: "/tasks/create_message", method: :post do |form| %>
+    <%= form.label :message, "Message:" %>
+    <%= form.text_field :message %>
+    <%= form.submit "Create Message" %>
+  <% end %>
+
+  <br>
+  <div>
+    Mensajes recibidos
   </div>
-<% end %>
 
-<%= turbo_stream_from 'tasks' %>
+  <%= turbo_stream_from 'messages' %>
 
-<h3>POR HACER</h3>
-<%= turbo_frame_tag "todo_list" do %>
-  <%= render @tasks %>
-<% end %>
+  <!-- CORE IDEA: Poder ir agregando los mensajes que voy escribiendo, uno abajo del otro !-->
 
-<br>
-<h3>TAREAS COMPLETADAS</h3>
-<%= turbo_frame_tag "done_list" do %>
-  <%= render @done_tasks %>
-<% end %>
 
 </div>
+

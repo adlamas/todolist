@@ -2,11 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="check"
 export default class extends Controller {
+
+  static targets = [ "num1", "num2" ]
+
   connect() { 
     console.log("Check Controller OLD VERSION connected")
   }
   
   active(event) {
+    debugger;
     console.log("CheckController active")
     const id = event.target.dataset.id
     const csrfToken = document.querySelector("[name='csrf-token']").content
@@ -26,5 +30,12 @@ export default class extends Controller {
       return response.text()
     })
     .then(Turbo.renderStreamMessage)
+  }
+
+  sum(){
+    const number1 = parseInt(this.num1Target.value)
+    const number2 = parseInt(this.num2Target.value)
+
+    const number3 = number1 + number2;
   }
 }

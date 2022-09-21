@@ -33,16 +33,18 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
+    byebug
     @task = Task.new(task_params)
 
     respond_to do |format|
       if @task.save
+        byebug
         format.html { redirect_to tasks_url, notice: "Task was successfully created." }
-        format.json { render :show, status: :created, location: @task }
+        byebug
         @task.broadcast_render_to "tasks", partial: "tasks/create", locals: { task: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        @task.broadcast_render_to "tasks", partial: "tasks/create", locals: { errors: @task.errors }
       end
     end
   end
@@ -69,6 +71,12 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #def create_message
+  #  byebug
+  #  @message = Message.new(params[:message])
+  #  @message.broadcast_render_to "tasks", partial: "tasks/create_message", locals: { message: @message }
+  #end
 
   private
     # Use callbacks to share common setup or constraints between actions.

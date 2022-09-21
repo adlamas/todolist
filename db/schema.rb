@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_26_075616) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_21_183007) do
+  create_table "messages", force: :cascade do |t|
+    t.string "content", null: false
+    t.string "addressee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.boolean "completed", default: false
