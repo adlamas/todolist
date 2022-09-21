@@ -2,8 +2,22 @@ class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
 
   def create
-    byebug
     @message = Message.new(content: params[:content])
+    if @message.save!
+      respond_to do |format|
+        format.turbo_stream { render partial: 'messages/create', locals: { message: @message } }
+      end
+    end
+  end
+
+  def show
+  end
+
+  def new
+    @message = Message.new
+  end
+
+  def edit
   end
   
   private
