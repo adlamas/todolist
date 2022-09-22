@@ -1,0 +1,10 @@
+
+<%= turbo_frame_tag @message.id do %>
+  <h5>
+    <div> Informacion: </div>
+    <div> ID: <%= @message.id %> </div>
+    <div> Content: <%= @message.content %> </div>
+    <div> Fecha de creacion: <%= @message.created_at.to_date %> </div>
+    <%= link_to "Volver", @message %>
+  </h5>
+<% end %>

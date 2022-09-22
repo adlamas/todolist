@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
 
+  def index
+    @messages = Message.all
+  end
+
   def create
     @message = Message.new(content: params[:content])
     if @message.save!
@@ -18,6 +22,7 @@ class MessagesController < ApplicationController
   end
 
   def edit
+    #byebug
   end
   
   private

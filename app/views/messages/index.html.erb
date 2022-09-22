@@ -1,5 +1,4 @@
 <div class="container">
-
   <p style="color: green"><%= notice %></p>
 
   <h1>MENSAJES</h1>
@@ -16,6 +15,7 @@
     <h2> Mensajes recibidos </h2>
 
     <%= turbo_frame_tag "messages_list" do %>
+      <%= render @messages %>
     <% end %>
   </div>
 
