@@ -1,7 +1,6 @@
-
 <%= turbo_frame_tag message.id do %>
   <h5>
     <%= message.content %>
-    <%= link_to "Editar mensaje", edit_message_path(message) %>
+      <%= link_to "Editar mensaje", edit_message_path(message) %>
   </h5>
 <% end %>

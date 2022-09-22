@@ -22,7 +22,19 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    #byebug
+    respond_to do |format|
+      format.html
+      render view: 'messages/edit', locals: { message: @message }
+    end
+  end
+
+  def update
+    if @message.update!(content: message_params[:content])
+      respond_to do |format|
+        format.html { redirect_to tasks_url, notice: "Task was successfully updated." }
+        format.turbo_stream { render partial: 'messages/update', locals: { message: @message } }
+      end
+    end
   end
   
   private
@@ -32,7 +44,7 @@ class MessagesController < ApplicationController
   end
 
   # Only allow a list of trusted parameters through.
-  #def message_params
-  #  params.require(:task).permit(:name, :completed)
-  #end
+  def message_params
+    params.require(:message).permit(:content)
+  end
 end

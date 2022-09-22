@@ -1,10 +1,12 @@
 
 <%= turbo_frame_tag @message.id do %>
   <h5>
-    <div> Informacion: </div>
-    <div> ID: <%= @message.id %> </div>
-    <div> Content: <%= @message.content %> </div>
-    <div> Fecha de creacion: <%= @message.created_at.to_date %> </div>
-    <%= link_to "Volver", @message %>
+    <%= form_with model: @message, method: :put do |form| %>
+      <%= form.label :content, "Actualizar mensaje:" %>
+      <%= form.text_field :content %>
+      <%= form.submit "Update" %>
+
+      <%= link_to "Volver", @message %>
+    <% end %>
   </h5>
 <% end %>
