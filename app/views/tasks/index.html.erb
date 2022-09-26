@@ -28,32 +28,21 @@
   <% end %>
 
   <br>
+  <h3>EDITAR TAREAS</h3>
+  <% @tasks.each do |task| %>
+    <div>
+      <%= task.name %>
+      <%= link_to "Show", task %>
+      <%= link_to "Edit", edit_task_path(task) %>
+    </div>
+  <% end %>
+
+  <br>
+
   <div data-controller="check"> <!-- STIMULUS !-->
     <input data-check-target="num1" type="text"><br>
     <input data-check-target="num2" type="text"><br>
     <button data-action="click->check#sum">Sum</button>
   </div>
-
   <br>
-  <h3> -------------------------------------------------------------------------- </h3>
-
-  <h3>MENSAJES</h3>
-
-  <%= form_with url: "/tasks/create_message", method: :post do |form| %>
-    <%= form.label :message, "Message:" %>
-    <%= form.text_field :message %>
-    <%= form.submit "Create Message" %>
-  <% end %>
-
-  <br>
-  <div>
-    Mensajes recibidos
-  </div>
-
-  <%= turbo_stream_from 'messages' %>
-
-  <!-- CORE IDEA: Poder ir agregando los mensajes que voy escribiendo, uno abajo del otro !-->
-
-
-</div>
 

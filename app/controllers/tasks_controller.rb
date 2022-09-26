@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
+  include ActionView::RecordIdentifier
 
   # GET /tasks or /tasks.json
   def index
@@ -47,6 +48,7 @@ class TasksController < ApplicationController
   end
 
   # PATCH/PUT /tasks/1 or /tasks/1.json
+=begin
   def update
     respond_to do |format|
       if @task.update(task_params)
@@ -55,6 +57,21 @@ class TasksController < ApplicationController
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+=end
+
+  def update
+    @task.update(task_params)
+
+    respond_to do |format|
+      format.html         { redirect_to edit_task_url(@task)}
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace('name_of_task', locals: { task: @task }, partial: 'tasks/task_name'),
+          turbo_stream.replace('form_of_task', locals: { task: @task }, partial: 'tasks/form')
+        ]
       end
     end
   end

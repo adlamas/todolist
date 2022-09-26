@@ -4,7 +4,7 @@
   <h1>MENSAJES</h1>
 
   <br>
-  <%= form_with url: "/messages", method: :post do |form| %>
+  <%= form_with url: "/messages", method: :post, class: 'blue-frame' do |form| %>
     <%= form.label :content, "Escribir mensaje:" %>
     <%= form.text_field :content %>
     <%= form.submit "Create Message" %>
@@ -19,6 +19,8 @@
     <% end %>
   </div>
 
-  <!-- CORE IDEA: Poder ir agregando los mensajes que voy escribiendo, uno abajo del otro !-->
+  <!-- CORE IDEA: Agregar una vista EDIT en la que yo edite un mensaje y se actualice automaticamente en el front mediante Turbo-Stream con 
+        WebSockets
+  !-->
 
 </div>
